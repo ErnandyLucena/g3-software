@@ -25,7 +25,7 @@
             top: 0;
             left: 0;
             z-index: -1;
-            background: linear-gradient(-45deg, #050816, #0b112b, #03040f, #10183b);
+            background: linear-gradient(-45deg, #f8f9ff, #d4dcff, #fdfdff, #b6c3ff);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
         }
@@ -55,7 +55,7 @@
 
         /* Efeito de vidro para cards e header */
         .glassmorphism {
-            background: rgba(17, 25, 40, 0.6);
+            background: rgb(33, 56, 95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -117,49 +117,125 @@
         .modal {
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
+
+        .tab-button {
+        border-color: transparent;
+        color: #6b7280; /* text-gray-500 */
+        transition: all 0.3s ease;
+    }
+    .tab-button:hover {
+        color: #0891b2; /* um tom de ciano */
+        border-color: #d1d5db; /* text-gray-300 */
+    }
+    .tab-button.active-tab {
+        color: #00aaff; /* Cor principal do seu site */
+        border-color: #00aaff; /* Cor principal do seu site */
+    }
+    /* Estilo para a barra de rolagem das abas em navegadores WebKit */
+    .overflow-x-auto::-webkit-scrollbar {
+        height: 4px;
+    }
+    .overflow-x-auto::-webkit-scrollbar-thumb {
+        background-color: #d1d5db;
+        border-radius: 20px;
+    }
+
+    @layer utilities {
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 10s ease-in-out infinite;
+  }
+}
+
+/* CSS para padronizar os campos do formulário (versão pura) */
+.form-input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem; /* 12px na vertical, 16px na horizontal */
+    color: #1f2937; /* Cor do texto digitado (cinza bem escuro) */
+    background-color: #f1f5f9; /* Fundo do campo (cinza bem claro) */
+    border: 1px solid #e2e8f0; /* Borda padrão */
+    border-radius: 0.5rem; /* Cantos arredondados (8px) */
+    transition: all 300ms ease-out; /* Transição suave para todos os efeitos */
+}
+
+/* Estilos quando o campo está em foco (selecionado pelo usuário) */
+.form-input:focus {
+    outline: none; /* Remove a borda de foco padrão do navegador */
+    border-color: transparent; /* Esconde a borda original para dar lugar ao efeito de anel */
+    box-shadow: 0 0 0 2px #00aaff; /* Cria um anel ciano ao redor do campo */
+}
+
+/* Estilo para o texto de placeholder (ex: "Seu nome completo") */
+.form-input::placeholder {
+    color: #9ca3af; /* Cor do texto de exemplo (cinza médio) */
+}
+
     </style>
 </head>
 <body>
     <div class="animated-bg"></div>
 
     <!-- Header e Navegação Responsiva -->
-    <header class="glassmorphism sticky top-0 z-50">
+    <header class="relative backdrop-blur-lg bg-blue-900/45 border-b border-cyan-400/10 shadow-lg shadow-cyan-400/10 sticky top-0 z-50 overflow-hidden">
+        <!-- Aura azul espalhada com pseudo-elementos -->
+        <div class="absolute inset-0 pointer-events-none z-[-1]">
+          <div class="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-cyan-400 blur-3xl opacity-20 rounded-full animate-pulse"></div>
+          <div class="absolute bottom-1/3 right-1/4 w-[200px] h-[200px] bg-blue-500 blur-2xl opacity-20 rounded-full animate-ping"></div>
+        </div>
+      
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-white">
-                <img class="w-10" src="logoG3.png" alt="">
-            </div>
-            <!-- Menu Desktop -->
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#inicio" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Início</a>
-                <a href="#sobre" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Sobre</a>
-                <a href="#servicos" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Serviços</a>
-                <a href="#diferenciais" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Diferenciais</a>
-                <a href="#unidades" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300">Unidades</a>
-            </nav>
-            <button id="openModalBtnDesktop" class="hidden md:block btn-primary">
-                Agendar Demonstração
+          <div class="text-2xl font-bold text-cyan-100 flex items-center space-x-2">
+            <img class="w-10 drop-shadow-cyan" src="logoG3.png" alt="Logo">
+          </div>
+      
+          <!-- Menu Desktop -->
+          <nav class="hidden md:flex items-center space-x-8 text-sm font-medium ml-32">
+            <a href="#inicio" class="text-cyan-100 hover:text-cyan-400 hover:drop-shadow transition-all duration-300">Início</a>
+            <a href="#sobre" class="text-cyan-100 hover:text-cyan-400 hover:drop-shadow transition-all duration-300">Sobre</a>
+            <a href="#servicos" class="text-cyan-100 hover:text-cyan-400 hover:drop-shadow transition-all duration-300">Serviços</a>
+            <a href="#diferenciais" class="text-cyan-100 hover:text-cyan-400 hover:drop-shadow transition-all duration-300">Diferenciais</a>
+            <a href="#unidades" class="text-cyan-100 hover:text-cyan-400 hover:drop-shadow transition-all duration-300">Unidades</a>
+          </nav>
+      
+          <button id="openModalBtnDesktop" class="hidden md:block bg-blue-500 hover:bg-cyan-400 text-white px-4 py-2 rounded-xl shadow-md transition duration-300 hover:shadow-cyan-500/50">
+            Agendar Demonstração
+          </button>
+      
+          <!-- Botão Mobile -->
+          <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-cyan-200 hover:text-cyan-400 transition duration-300">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
             </button>
-            <!-- Botão do Menu Mobile -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
+          </div>
         </div>
-        <!-- Menu Mobile (oculto por padrão) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/90 backdrop-blur-sm">
-            <nav class="flex flex-col items-center space-y-4 py-8">
-                <a href="#inicio" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 mobile-nav-link">Início</a>
-                <a href="#sobre" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 mobile-nav-link">Sobre</a>
-                <a href="#servicos" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 mobile-nav-link">Serviços</a>
-                <a href="#diferenciais" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 mobile-nav-link">Diferenciais</a>
-                <a href="#unidades" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 mobile-nav-link">Unidades</a>
-                <button id="openModalBtnMobile" class="mt-4 btn-primary mobile-nav-link">
-                    Agendar Demonstração
-                </button>
-            </nav>
+      
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-900/80 backdrop-blur-sm transition-all duration-300">
+          <nav class="flex flex-col items-center space-y-4 py-8">
+            <a href="#inicio" class="text-cyan-100 hover:text-cyan-400 transition">Início</a>
+            <a href="#sobre" class="text-cyan-100 hover:text-cyan-400 transition">Sobre</a>
+            <a href="#servicos" class="text-cyan-100 hover:text-cyan-400 transition">Serviços</a>
+            <a href="#diferenciais" class="text-cyan-100 hover:text-cyan-400 transition">Diferenciais</a>
+            <a href="#unidades" class="text-cyan-100 hover:text-cyan-400 transition">Unidades</a>
+            <button id="openModalBtnMobile" class="mt-4 bg-cyan-500 hover:bg-cyan-400 text-white px-4 py-2 rounded-xl transition">
+              Agendar Demonstração
+            </button>
+          </nav>
         </div>
-    </header>
+      </header>
+      
 
     <main class="container mx-auto px-6 py-12 relative z-10">
 
@@ -169,11 +245,12 @@
             <div class="grid md:grid-cols-2 gap-12 items-center w-full">
                 <!-- Coluna de Texto -->
                 <div class="text-center md:text-left z-10">
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight fade-in">
-                        Gestão Empresarial <br/> <span class="text-cyan-400">Inteligente e Integrada</span>
+                    <h2 class="mb-10 text-lg text-gray-400">G3 SOLUÇÕES EM SOFTWARE</h2>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-600 mb-6 leading-tight fade-in">
+                        Gestão Empresarial <br/> <span class="text-cyan-500">Inteligente e Integrada</span>
                     </h1>
-                    <p class="text-lg text-gray-300 max-w-xl mx-auto md:mx-0 mb-8 fade-in" style="transition-delay: 200ms;">
-                        Otimize processos, aumente a produtividade e tome decisões assertivas com as soluções de ERP da G3 Tecnologia.
+                    <p class="text-lg text-gray-500 max-w-xl mx-auto md:mx-0 mb-8 fade-in" style="transition-delay: 200ms;">
+                        Otimize processos, aumente a produtividade e tome decisões assertivas com as soluções de ERP da G3 Soluções em Tecnologia.
                     </p>
                     <a href="#servicos" class="btn-primary inline-block fade-in" style="transition-delay: 400ms;">Conheça nossas soluções</a>
                 </div>
@@ -214,9 +291,9 @@
                      <img src="https://placehold.co/600x400/0b112b/00aaff?text=Nossa+Missão" alt="Equipe G3 Tecnologia" class="rounded-xl shadow-2xl w-full">
                 </div>
                 <div class="fade-in" style="transition-delay: 200ms;">
-                    <h2 class="text-4xl font-bold text-white mb-6">Transformando a gestão empresarial há mais de <span class="text-cyan-400">10 anos</span></h2>
-                    <p class="text-gray-300 mb-4">A G3 Tecnologia nasceu com o propósito de simplificar a complexidade da gestão de negócios. Com uma década de experiência, desenvolvemos sistemas ERP robustos e intuitivos que se adaptam às necessidades específicas de cada cliente, do microempreendedor a grandes redes.</p>
-                    <p class="text-gray-300">Nossa paixão é a tecnologia e nosso objetivo é o seu sucesso. Acreditamos que a ferramenta certa pode impulsionar o crescimento, otimizar recursos e trazer clareza para a tomada de decisões estratégicas.</p>
+                    <h2 class="text-4xl font-bold text-gray-600 mb-6">Transformando a gestão empresarial <span class="text-cyan-400">desde 2008</span></h2>
+                    <p class="text-gray-600 mb-4">A G3 Tecnologia nasceu com o propósito de simplificar a complexidade da gestão de negócios. Desenvolvemos sistemas ERP robustos e intuitivos que se adaptam às necessidades específicas de cada cliente, do microempreendedor a grandes redes.</p>
+                    <p class="text-gray-600">Nossa paixão é a tecnologia e nosso objetivo é o seu sucesso. Nossas ferramentas podem impulsionar seu crescimento otimizando recursos e trazendo clareza para a tomada de decisões estratégicas.</p>
                 </div>
             </div>
         </section>
@@ -226,96 +303,96 @@
     <section id="servicos" class="py-20 sm:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl section-title fade-in">Nossos Softwares</h2>
-                <p class="mt-4 text-lg leading-8 text-gray-400">Soluções completas para otimizar a gestão do seu negócio.</p>
+                <h2 class="text-3xl font-bold tracking-tight text-gray-600 sm:text-4xl section-title fade-in">Nossos Softwares</h2>
+                <p class="mt-4 text-lg leading-8 text-gray-500">Soluções completas para otimizar a gestão do seu negócio.</p>
             </div>
 
             <!-- Grid de Cards dos Softwares -->
             <div id="software-grid" class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Card 1 -->
-                <div class="software-card group relative cursor-pointer bg-gray-900/50 border border-gray-700 p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="0">
+                <div class="software-card group relative cursor-pointer bg-gray-900/65 border  p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="0">
                     <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-cyan-900/50 text-cyan-400 mb-6 transition-colors duration-300">
                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
                     </div>
                     <h3 class="text-lg font-bold text-cyan-400">GTECH GESTAO INTEGRADO</h3>
-                    <p class="mt-2 text-sm text-gray-400">Ideal para micro e pequenas empresas.</p>
+                    <p class="mt-2 text-sm text-gray-200">Ideal para médias e grandes empresas com gestão multi-filial.</p>
                      <span class="absolute bottom-4 right-4 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold text-sm">
                         Ver mais →
                     </span>
                 </div>
                 <!-- Card 2 -->
-                <div class="software-card group relative cursor-pointer bg-gray-900/50 border border-gray-700 p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="1">
+                <div class="software-card group relative cursor-pointer bg-gray-900/65  p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="1">
                     <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-cyan-900/50 text-cyan-400 mb-6 transition-colors duration-300">
                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 4h5m-5 4h5"></path></svg>
                     </div>
                     <h3 class="text-lg font-bold text-cyan-400">GTECH GESTAO ++</h3>
-                    <p class="mt-2 text-sm text-gray-400">Para operações extensas e multifiliais.</p>
+                    <p class="mt-2 text-sm text-gray-200">Para operações extensas e multifiliais.</p>
                      <span class="absolute bottom-4 right-4 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold text-sm">
                         Ver mais →
                     </span>
                 </div>
                 <!-- Card 3 -->
-                <div class="software-card group relative cursor-pointer bg-gray-900/50 border border-gray-700 p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="2">
+                <div class="software-card group relative cursor-pointer bg-gray-900/65  p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="2">
                     <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-cyan-900/50 text-cyan-400 mb-6 transition-colors duration-300">
                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 3V9H3V3m18 0l-8.29 8.29a2 2 0 01-2.83 0L3 3m18 0V1h-2v2h-2v2h2v2h2V5h2V3zM3 3V1H1v2H-1v2H1v2H3V5H1V3z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M21 14v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5m18-4l-8.29 8.29a2 2 0 01-2.83 0L3 10"></path></svg>
                     </div>
                     <h3 class="text-lg font-bold text-cyan-400">GTECH GESTAO CHEFF</h3>
-                    <p class="mt-2 text-sm text-gray-400">Para delicatessens, bares e restaurantes.</p>
+                    <p class="mt-2 text-sm text-gray-200">Ideal para delicatessens, bares e restaurantes.</p>
                      <span class="absolute bottom-4 right-4 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold text-sm">
                         Ver mais →
                     </span>
                 </div>
                 <!-- Card 4 -->
-                <div class="software-card group relative cursor-pointer bg-gray-900/50 border border-gray-700 p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="3">
+                <div class="software-card group relative cursor-pointer bg-gray-900/65  p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="3">
                     <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-cyan-900/50 text-cyan-400 mb-6 transition-colors duration-300">
                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                     </div>
                     <h3 class="text-lg font-bold text-cyan-400">GTECH GESTAO MOBILE</h3>
-                    <p class="mt-2 text-sm text-gray-400">Software via celular compatível com Android.</p>
+                    <p class="mt-2 text-sm text-gray-200">Software via celular compatível com Android.</p>
                      <span class="absolute bottom-4 right-4 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold text-sm">
                         Ver mais →
                     </span>
                 </div>
                 <!-- Card 5 -->
-                <div class="software-card group relative cursor-pointer bg-gray-900/50 border border-gray-700 p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="4">
+                <div class="software-card group relative cursor-pointer bg-gray-900/65  p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="4">
                     <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-cyan-900/50 text-cyan-400 mb-6 transition-colors duration-300">
                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H4a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
                     </div>
                     <h3 class="text-lg font-bold text-cyan-400">GTECH GESTAO NFC-e</h3>
-                    <p class="mt-2 text-sm text-gray-400">Sistema PDV básico para MEI's e EPP's.</p>
+                    <p class="mt-2 text-sm text-gray-200">Sistema PDV básico para MEI's e EPP's.</p>
                      <span class="absolute bottom-4 right-4 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold text-sm">
                         Ver mais →
                     </span>
                 </div>
                 <!-- Card 6 -->
-                <div class="software-card group relative cursor-pointer bg-gray-900/50 border border-gray-700 p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="5">
+                <div class="software-card group relative cursor-pointer bg-gray-900/65 p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="5">
                     <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-cyan-900/50 text-cyan-400 mb-6 transition-colors duration-300">
                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
                     </div>
                     <h3 class="text-lg font-bold text-cyan-400">DASHBOARD</h3>
-                    <p class="mt-2 text-sm text-gray-400">Informações em tempo real para decisões.</p>
+                    <p class="mt-2 text-sm text-gray-200">Informações em tempo real para tomada de decisões.</p>
                      <span class="absolute bottom-4 right-4 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold text-sm">
                         Ver mais →
                     </span>
                 </div>
                 <!-- Card 7 -->
-                <div class="software-card group relative cursor-pointer bg-gray-900/50 border border-gray-700 p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="6">
+                <div class="software-card group relative cursor-pointer bg-gray-900/65  p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="6">
                     <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-cyan-900/50 text-cyan-400 mb-6 transition-colors duration-300">
                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
                     </div>
                     <h3 class="text-lg font-bold text-cyan-400">GTECH BACKUP CLOUD</h3>
-                    <p class="mt-2 text-sm text-gray-400">Segurança e armazenamento em nuvem.</p>
+                    <p class="mt-2 text-sm text-gray-200">Segurança e armazenamento em nuvem.</p>
                      <span class="absolute bottom-4 right-4 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold text-sm">
                         Ver mais →
                     </span>
                 </div>
                 <!-- Card 8 -->
-                <div class="software-card group relative cursor-pointer bg-gray-900/50 border border-gray-700 p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="7">
+                <div class="software-card group relative cursor-pointer bg-gray-900/65   p-6 rounded-lg shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300" data-index="7">
                     <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-cyan-900/50 text-cyan-400 mb-6 transition-colors duration-300">
                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                     </div>
                     <h3 class="text-lg font-bold text-cyan-400">CONCILIAÇÃO BANCÁRIA</h3>
-                    <p class="mt-2 text-sm text-gray-400">Controle financeiro automatizado.</p>
+                    <p class="mt-2 text-sm text-gray-200">Controle financeiro automatizado.</p>
                      <span class="absolute bottom-4 right-4 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold text-sm">
                         Ver mais →
                     </span>
@@ -353,7 +430,7 @@
                 </div>
             </div>
              <div class="bg-gray-50 px-6 py-4 rounded-b-lg text-right">
-                <a href="#contato" id="modal-contact-btn" class="inline-flex justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">
+                <a href="#contato" id="modal-contact-btn" class="inline-flex justify-center rounded-md border border-transparent bg-cyan-600 py-2 px-4 text-sm font-medium text-gray-200 shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2">
                     Quero saber mais
                 </a>
             </div>
@@ -367,110 +444,157 @@
         <!-- Seção 5: Detalhes dos Produtos -->
         <section id="diferenciais" class="py-24">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-bold text-white text-center mb-16 section-title fade-in">Por que escolher a G3?</h2>
-                <div class="grid md:grid-cols-3 gap-10">
-                     <div class="text-center">
-                         <div class="bg-cyan-400/10 inline-flex p-4 rounded-full mb-4 border border-cyan-400/30">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3m6-6h3m-3 6h3M9 6h6M9 12h6M9 18h6" /></svg>
-                         </div>
-                         <h3 class="text-xl font-bold text-white mb-2">Plataforma Integrada</h3>
-                         <p class="text-gray-400">Todos os módulos conversam entre si, eliminando retrabalho e garantindo a consistência dos dados.</p>
-                     </div>
-                    <div class="text-center">
-                         <div class="bg-cyan-400/10 inline-flex p-4 rounded-full mb-4 border border-cyan-400/30">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-                         </div>
-                         <h3 class="text-xl font-bold text-white mb-2">Segurança de Ponta</h3>
-                         <p class="text-gray-400">Seus dados são seu maior ativo. Protegemos suas informações com backups em nuvem e protocolos robustos.</p>
-                     </div>
-                     <div class="text-center">
-                         <div class="bg-cyan-400/10 inline-flex p-4 rounded-full mb-4 border border-cyan-400/30">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
-                         </div>
-                         <h3 class="text-xl font-bold text-white mb-2">Suporte Humanizado</h3>
-                         <p class="text-gray-400">Nossa equipe está pronta para ajudar a solucionar dúvidas e garantir que você extraia o máximo da plataforma.</p>
-                     </div>
+                <h2 class="text-4xl font-bold text-gray-600 text-center mb-16 section-title fade-in">Por que escolher a G3?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+                    <div class="text-center p-6 rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="bg-cyan-500/10 inline-flex p-4 rounded-full mb-4 border border-cyan-500/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3m6-6h3m-3 6h3M9 6h6M9 12h6M9 18h6" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Plataforma Integrada</h3>
+                        <p class="text-gray-600">Todos os módulos conversam entre si, eliminando retrabalho e garantindo a consistência dos dados.</p>
+                    </div>
+                    
+                    <div class="text-center p-6 rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="bg-cyan-500/10 inline-flex p-4 rounded-full mb-4 border border-cyan-500/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Segurança de Ponta</h3>
+                        <p class="text-gray-600">Seus dados são seu maior ativo. Protegemos suas informações com backups em nuvem e protocolos robustos.</p>
+                    </div>
+                    
+                    <div class="text-center p-6 rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="bg-cyan-500/10 inline-flex p-4 rounded-full mb-4 border border-cyan-500/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Suporte Humanizado</h3>
+                        <p class="text-gray-600">Nossa equipe está pronta para ajudar a solucionar dúvidas e garantir que você extraia o máximo da plataforma.</p>
+                    </div>
+        
+                    <div class="text-center p-6 rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="bg-cyan-500/10 inline-flex p-4 rounded-full mb-4 border border-cyan-500/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Velocidade no Atendimento</h3>
+                        <p class="text-gray-600">Suporte eficiente com respostas rápidas para que sua operação nunca pare.</p>
+                    </div>
+        
+                    <div class="text-center p-6 rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="bg-cyan-500/10 inline-flex p-4 rounded-full mb-4 border border-cyan-500/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Customização</h3>
+                        <p class="text-gray-600">Possibilidade de personalizar telas e informações de acordo com a necessidade do seu negócio.</p>
+                    </div>
+        
+                    <div class="text-center p-6 rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div class="bg-cyan-500/10 inline-flex p-4 rounded-full mb-4 border border-cyan-500/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Serviços Adicionais</h3>
+                        <p class="text-gray-600">Consultoria para a melhor solução custo-benefício (hardware/software) para sua real necessidade.</p>
+                    </div>
+                </div>
+        
+                <div class="mt-20 text-center">
+                    <a href="#servicos" class="btn-primary inline-flex items-center group">
+                        <span>Conheça outros serviços G3!</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </section>
     
         <!-- Seção 5: Soluções Detalhadas (Nova Seção Aprimorada) -->
-        <div id="solucoes" class="py-24 ">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                     <h2 class="text-3xl section-title font-bold tracking-tight text-white sm:text-4xl">Soluções Detalhadas</h2>
-                     <p class="mt-4 text-lg leading-8 text-gray-400">Conheça a fundo o que cada sistema pode fazer por você.</p>
-                </div>
-                
-                <div class="space-y-16">
-                    <!-- Solução 1: Gtech Integrado -->
-                    <section id="gtech-integrado" class="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-gray-900/50 p-8 rounded-2xl border border-gray-700">
-                        <div class="order-2 md:order-1">
-                            <h3 class="text-3xl font-bold text-white mb-4">Gtech <span class="text-cyan-400">Integrado</span></h3>
-                            <p class="text-gray-300 mb-6">Software de entrada com módulos simples e fáceis de usar. Ideal para micro e pequenas empresas, atendendo regimes tributários desde o MEI ao lucro real.</p>
-                            <ul class="space-y-3 mb-8">
-                                <li class="flex items-center text-gray-300"><svg class="h-6 w-6 mr-3 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Controle Financeiro Completo</li>
-                                <li class="flex items-center text-gray-300"><svg class="h-6 w-6 mr-3 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Gestão de Vendas e Estoque</li>
-                                <li class="flex items-center text-gray-300"><svg class="h-6 w-6 mr-3 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Emissão de Notas Fiscais (NF-e/NFC-e)</li>
-                            </ul>
-                            <a href="#contato" class="inline-block bg-cyan-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-cyan-600 transition-colors">Quero uma Demonstração</a>
-                        </div>
-                        <div class="order-1 md:order-2">
-                            <img src="https://placehold.co/600x450/0f172a/06b6d4?text=Gtech+Integrado" alt="Painel do Gtech Integrado" class="rounded-lg shadow-2xl shadow-cyan-500/10 w-full h-auto">
-                        </div>
-                    </section>
-                    
-                    <!-- Solução 2: Gtech Gestão ++ -->
-                    <section id="gtech-plus" class="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-gray-900/50 p-8 rounded-2xl border border-gray-700">
-                        <div>
-                            <img src="https://placehold.co/600x450/0f172a/06b6d4?text=Gtech+Gestão++" alt="Painel do Gtech Gestão ++" class="rounded-lg shadow-2xl shadow-cyan-500/10 w-full h-auto">
-                        </div>
-                        <div>
-                            <h3 class="text-3xl font-bold text-white mb-4">Gtech <span class="text-cyan-400">Gestão ++</span></h3>
-                            <p class="text-gray-300 mb-6">Pensado para otimizar operações complexas e aumentar a rentabilidade. Completo e com módulos avançados para quem precisa de mais performance.</p>
-                             <ul class="space-y-3 mb-8">
-                                <li class="flex items-center text-gray-300"><svg class="h-6 w-6 mr-3 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Gerenciamento Multifiliais</li>
-                                <li class="flex items-center text-gray-300"><svg class="h-6 w-6 mr-3 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Relatórios Gerenciais Avançados</li>
-                                <li class="flex items-center text-gray-300"><svg class="h-6 w-6 mr-3 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Fluxo de Caixa em Tempo Real</li>
-                            </ul>
-                             <a href="#contato" class="inline-block bg-cyan-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-cyan-600 transition-colors">Quero uma Demonstração</a>
-                        </div>
-                    </section>
-                </div>
+        <div id="solucoes" class="py-24 bg-slate-50/80 rounded-3xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl section-title font-bold tracking-tight text-gray-800 sm:text-4xl">Nossas Plataformas</h2>
+            <p class="mt-4 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">Soluções flexíveis que se adaptam perfeitamente ao seu tipo de negócio.</p>
+        </div>
+
+        <div class="mb-10">
+            <div class="border-b border-gray-200">
+                <nav class="flex -mb-px space-x-6 overflow-x-auto" aria-label="Tabs">
+                    <button data-tab-target="#gtech-integrado" class="tab-button active-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                        G. Integrado
+                    </button>
+                    <button data-tab-target="#gtech-plus" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                        G. Gestão ++
+                    </button>
+                    <button data-tab-target="#gtech-cheff" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                        G. Cheff
+                    </button>
+                    <button data-tab-target="#gtech-mobile" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                        G. Mobile
+                    </button>
+                    </nav>
             </div>
         </div>
-        <!-- Seção 6: Depoimentos (Exemplo) -->
-        <section id="depoimentos" class="py-24">
-             <h2 class="section-title text-4xl font-bold text-white text-center mb-16 fade-in">O que nossos clientes dizem</h2>
-             <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                  <div class="glassmorphism p-8 rounded-xl fade-in" style="transition-delay: 200ms;">
-                       <p class="text-gray-300 italic mb-6">"Com o Gtech Gestão++, conseguimos unificar a operação das nossas 5 filiais. A visão consolidada do estoque e do financeiro foi um divisor de águas para nossa estratégia."</p>
-                       <div class="flex items-center">
-                           <div class="ml-4">
-                               <p class="font-bold text-white">Mariana Costa</p>
-                               <p class="text-sm text-cyan-400">Diretora de Operações</p>
-                           </div>
-                       </div>
-                  </div>
-                  <div class="glassmorphism p-8 rounded-xl fade-in" style="transition-delay: 400ms;">
-                       <p class="text-gray-300 italic mb-6">"O Gtech Cheff simplificou todo o nosso fluxo, desde o pedido na mesa até o controle de insumos. Ganhamos agilidade e reduzimos desperdícios."</p>
-                       <div class="flex items-center">
-                           <div class="ml-4">
-                               <p class="font-bold text-white">João Almeida</p>
-                               <p class="text-sm text-cyan-400">Sócio-proprietário</p>
-                           </div>
-                       </div>
-                  </div>
-             </div>
-        </section>
+
+        <div class="">
+            <div id="gtech-integrado" class="tab-content">
+                <section class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+                    <div class="order-2 md:order-1 text-gray-700">
+                        <h3 class="text-3xl font-bold mb-4 text-gray-900">Gtech <span class="text-cyan-500">Integrado</span></h3>
+                        <p class="mb-6 leading-relaxed">Software de entrada com módulos simples e fáceis de usar. Ideal para micro e pequenas empresas, atendendo regimes tributários desde o MEI ao lucro real.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center"><svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Controle Financeiro Completo</li>
+                            <li class="flex items-center"><svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Gestão de Vendas e Estoque</li>
+                            <li class="flex items-center"><svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Emissão de Notas Fiscais (NF-e/NFC-e)</li>
+                        </ul>
+                        <a href="#cta-final" class="btn-primary">Quero uma Demonstração</a>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <img src="https://placehold.co/600x450/e0f2fe/0891b2?text=Gtech+Integrado" alt="Painel do Gtech Integrado" class="rounded-xl shadow-2xl shadow-cyan-500/20 w-full h-auto">
+                    </div>
+                </section>
+            </div>
+            
+            <div id="gtech-plus" class="tab-content hidden">
+                 <section class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+                    <div>
+                        <img src="https://placehold.co/600x450/e0f2fe/0891b2?text=Gtech+Gestão++" alt="Painel do Gtech Gestão ++" class="rounded-xl shadow-2xl shadow-cyan-500/20 w-full h-auto">
+                    </div>
+                    <div class="text-gray-700">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">Gtech <span class="text-cyan-500">Gestão ++</span></h3>
+                        <p class="mb-6 leading-relaxed">Pensado para otimizar operações complexas e aumentar a rentabilidade. Completo e com módulos avançados para quem precisa de mais performance.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center"><svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Gerenciamento Multifiliais</li>
+                            <li class="flex items-center"><svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Relatórios Gerenciais Avançados</li>
+                            <li class="flex items-center"><svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Fluxo de Caixa em Tempo Real</li>
+                        </ul>
+                        <a href="#cta-final" class="btn-primary">Quero uma Demonstração</a>
+                    </div>
+                </section>
+            </div>
+
+            <div id="gtech-cheff" class="tab-content hidden">
+                 <div class="text-center p-16 border-2 border-dashed rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Gtech Cheff</h3>
+                    <p class="text-gray-500 mt-2">Conteúdo em breve. A solução ideal para bares, restaurantes e delicatessens.</p>
+                 </div>
+            </div>
+
+            <div id="gtech-mobile" class="tab-content hidden">
+                 <div class="text-center p-16 border-2 border-dashed rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Gtech Mobile</h3>
+                    <p class="text-gray-500 mt-2">Conteúdo em breve. Vendas externas na palma da sua mão.</p>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- Seção 7: Unidades -->
        
         
         <!-- Seção 8: CTA Final -->
         <section id="cta-final" class="py-24 text-center">
-             <div class="glassmorphism rounded-xl p-12 max-w-4xl mx-auto fade-in">
-                  <h2 class="text-4xl font-bold text-white mb-6">Pronto para dar o próximo passo?</h2>
+             <div class="glassmorphism rounded-xl p-12 max-w-full mx-auto fade-in">
+                  <h2 class="text-4xl font-bold text-gray-200 mb-6">Pronto para dar o próximo passo?</h2>
                   <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
                         Veja na prática como nossas soluções podem revolucionar a gestão da sua empresa. Agende uma demonstração gratuita e sem compromisso.
                   </p>
@@ -483,33 +607,124 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-gray-800 mt-16">
-        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
-            <p>&copy; 2025 G3 Soluções em Tecnologia. Todos os direitos reservados.</p>
+    <footer class="bg-[#0a0f21] text-gray-400 mt-24">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="space-y-4">
+                    <img class="w-12 h-auto" src="logoG3.png" alt="Logo G3 Tecnologia">
+                    <p class="text-sm">Soluções inteligentes e integradas para a gestão do seu negócio, otimizando processos e impulsionando resultados.</p>
+                </div>
+                
+                <div class="md:mx-auto">
+                    <h3 class="text-lg font-semibold text-white mb-4">Links Rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#inicio" class="hover:text-cyan-400 transition-colors duration-300">Início</a></li>
+                        <li><a href="#sobre" class="hover:text-cyan-400 transition-colors duration-300">Sobre</a></li>
+                        <li><a href="#servicos" class="hover:text-cyan-400 transition-colors duration-300">Serviços</a></li>
+                        <li><a href="#diferenciais" class="hover:text-cyan-400 transition-colors duration-300">Diferenciais</a></li>
+                    </ul>
+                </div>
+    
+                <div class="md:mx-auto">
+                    <h3 class="text-lg font-semibold text-white mb-4">Contato</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li>Caruaru e Recife, Pernambuco</li>
+                        <li><a href="mailto:contato@g3tecnologia.com.br" class="hover:text-cyan-400 transition-colors duration-300">contato@g3tecnologia.com.br</a></li>
+                        <li><a href="tel:+5500900000000" class="hover:text-cyan-400 transition-colors duration-300">(00) 90000-0000</a></li>
+                    </ul>
+                </div>
+    
+                <div class="md:mx-auto">
+                    <h3 class="text-lg font-semibold text-white mb-4">Siga-nos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" aria-label="LinkedIn" class="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-500/20 hover:text-cyan-400 transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="p-2 bg-gray-700/50 rounded-full hover:bg-cyan-500/20 hover:text-cyan-400 transition-all duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.644-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.646 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800">
+            <div class="container mx-auto px-6 py-4">
+                <p class="text-center text-sm">&copy; 2025 G3 Soluções em Tecnologia. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
     <!-- Modal de Contato -->
-    <div id="contactModal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 p-4 opacity-0 invisible" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div id="modal-panel" class="glassmorphism rounded-xl p-8 md:p-12 max-w-4xl w-full mx-auto transform scale-95 transition-transform duration-300">
-            <div class="flex justify-between items-center mb-8">
-                 <h2 id="modal-title" class="text-3xl font-bold text-white">Agende uma Demonstração</h2>
-                 <button id="closeModalBtn" class="text-gray-400 hover:text-white transition-colors">
-                      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                 </button>
+    <div id="contactModal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 opacity-0 invisible">
+    
+        <div id="modal-panel" class="bg-white w-full max-w-5xl rounded-2xl shadow-xl transform scale-95 transition-all duration-300 overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+                
+                <div class="hidden lg:block bg-slate-50 p-10">
+                    <div class="sticky top-10">
+                        <a href="#" class="mb-8 inline-block">
+                            <img class="w-12 h-auto" src="logoG3.png" alt="Logo G3 Tecnologia">
+                        </a>
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4">Uma nova era para sua gestão.</h2>
+                        <p class="text-gray-600 mb-8">Ao agendar sua demonstração, você terá acesso a:</p>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Uma análise completa das necessidades da sua empresa com um de nossos especialistas.</span>
+                            </li>
+                            <li class="flex items-start">
+                                 <svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Um tour guiado e personalizado pela plataforma, focado nas suas prioridades.</span>
+                            </li>
+                            <li class="flex items-start">
+                                 <svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Uma proposta clara e sem compromisso, desenhada para o seu crescimento.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="p-8 md:p-12 relative">
+                    <button id="closeModalBtn" class="absolute top-6 right-6 text-gray-400 hover:text-gray-800 hover:rotate-90 transition-all duration-300">
+                        <span class="sr-only">Fechar</span>
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                    
+                    <h2 id="modal-title" class="text-3xl font-bold text-gray-800 mb-2">Agende uma Demonstração</h2>
+                    <p class="text-gray-500 mb-8">Preencha os campos abaixo para começar.</p>
+    
+                    <form action="#"  class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="modal-name" class="block text-sm font-medium text-gray-700 mb-1">Nome*</label>
+                                <input type="text" id="modal-name" placeholder="Seu nome completo" required class="form-input">
+                            </div>
+                            <div>
+                                <label for="modal-company" class="block text-sm font-medium text-gray-700 mb-1">Empresa</label>
+                                <input type="text" id="modal-company" placeholder="Nome da sua empresa" class="form-input">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="modal-email" class="block text-sm font-medium text-gray-700 mb-1">E-mail*</label>
+                            <input type="email" id="modal-email" placeholder="seu@email.com" required class="form-input">
+                        </div>
+    
+                        <div>
+                            <label for="modal-tel" class="block text-sm font-medium text-gray-700 mb-1">Telefone / WhatsApp*</label>
+                            <input type="tel" id="modal-tel" placeholder="(00) 90000-0000" required class="form-input">
+                        </div>
+    
+                        <div class="pt-4">
+                            <button type="submit" class="w-full btn-primary group inline-flex items-center justify-center py-3 text-base">
+                                <span>Enviar Solicitação</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <form action="#" method="POST" class="max-w-xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <input type="text" placeholder="Seu nome" class="bg-gray-800/50 text-white p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition w-full">
-                    <input type="text" placeholder="Nome da sua empresa" class="bg-gray-800/50 text-white p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition w-full">
-                    <input type="email" placeholder="E-mail" class="bg-gray-800/50 text-white p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition w-full">
-                    <input type="tel" placeholder="Telefone para contato" class="bg-gray-800/50 text-white p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition w-full">
-                </div>
-                <textarea placeholder="Deixe aqui uma breve descrição do seu negócio..." rows="4" class="w-full bg-gray-800/50 text-white p-3 rounded-lg mb-6 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition"></textarea>
-                <div class="text-center">
-                    <button type="submit" class="btn-primary px-8 py-3 w-full sm:w-auto">Enviar Solicitação</button>
-                </div>
-            </form>
         </div>
     </div>
 
@@ -614,7 +829,7 @@ const softwareData = [
         icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>`,
         title: 'GTECH GESTAO MOBILE',
         shortDesc: 'Software via celular compatível com Android.',
-        fullDesc: `<p>Leve a gestão da sua empresa no bolso. O <strong>GTECH Gestão Mobile</strong> permite que vendedores externos tirem pedidos, consultem estoque e clientes de qualquer lugar. Totalmente integrado ao seu sistema principal, agiliza as vendas e reduz erros.</p>`
+        fullDesc: `<p>A gestão da sua empresa na palma da sua mão! O <strong>GTECH Gestão Mobile</strong> permite que vendedores externos tirem pedidos, consultem estoque e clientes de onde você estiver. Totalmente integrado ao seu sistema principal, agiliza as vendas e reduz erros.</p>`
     },
      {
         icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H4a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>`,
@@ -632,13 +847,13 @@ const softwareData = [
         icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>`,
         title: 'GTECH BACKUP CLOUD',
         shortDesc: 'Segurança e armazenamento em nuvem.',
-        fullDesc: `<p>Proteja o ativo mais valioso da sua empresa: suas informações. Com o <strong>GTECH Backup Cloud</strong>, seus dados são salvos automaticamente em servidores seguros na nuvem, protegendo contra falhas de hardware, vírus ou imprevistos. Durma tranquilo sabendo que seu negócio está seguro.</p>`
+        fullDesc: `<p>Proteja o ativo mais valioso da sua empresa: suas informações. Com o <strong>GTECH Backup Cloud</strong>, seus dados são salvos automaticamente em servidores seguros na nuvem, protegendo contra falhas de hardware, vírus, ataques virtuais ou imprevistos. Durma tranquilo sabendo que seu negócio está seguro.</p>`
     },
      {
         icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
         title: 'CONCILIAÇÃO BANCÁRIA',
         shortDesc: 'Controle financeiro automatizado.',
-        fullDesc: `<p>Diga adeus às planilhas manuais. Nossa ferramenta de <strong>Conciliação Bancária</strong> importa extratos e cruza automaticamente com seus lançamentos de contas a pagar e a receber. Identifique divergências com facilidade e mantenha seu fluxo de caixa sempre preciso e atualizado.</p>`
+        fullDesc: `<p>Diga adeus às planilhas manuais. Nossa ferramenta de <strong>Conciliação Bancária</strong> importa extratos e aponta divergências em seus recebíveis. Identifique divergências com facilidade e mantenha seu fluxo de caixa sempre preciso e atualizado.</p>`
     }
 ];
 
@@ -718,6 +933,32 @@ window.addEventListener('keydown', (e) => {
 });
 
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('[data-tab-target]');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = document.querySelector(tab.dataset.tabTarget);
+
+                // Oculta todos os conteúdos
+                tabContents.forEach(tabContent => {
+                    tabContent.classList.add('hidden');
+                });
+                
+                // Remove a classe ativa de todas as abas
+                tabs.forEach(t => {
+                    t.classList.remove('active-tab');
+                });
+
+                // Adiciona a classe ativa na aba clicada
+                tab.classList.add('active-tab');
+                // Mostra o conteúdo alvo
+                target.classList.remove('hidden');
+            });
+        });
+    });
     </script>
 </body>
 </html>

@@ -245,10 +245,10 @@
 
         <div id="solucoes" class="py-24 bg-slate-50/80 rounded-3xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl section-title font-bold tracking-tight text-gray-800 sm:text-4xl">Nossas Plataformas</h2>
-        <p class="mt-4 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">Soluções flexíveis que se adaptam perfeitamente ao seu tipo de negócio.</p>
-      </div>
+      <div class="text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-600 sm:text-4xl section-title fade-in">Nossos Softwares</h2>
+            <p class="mt-4 text-lg leading-8 text-gray-600 mb-10">Soluções completas para otimizar a gestão do seu negócio.</p>
+        </div>
   
       
   
@@ -261,6 +261,8 @@
                 <button data-tab-target="#gtech-cheff" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">G. Cheff</button>
                 <button data-tab-target="#gtech-mobile" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">G. Mobile</button>
                 <button data-tab-target="#gtech-nfce" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">G. NFC-e</button>
+                <button data-tab-target="#dashboard" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">G. Dashboard</button>
+
               </nav>              
         </div>
       </div>
@@ -359,21 +361,61 @@
               </div>
             </section>
           </div>
+
+          <div id="dashboard" class="tab-content hidden">
+    <section class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div>
+            <img src="https://placehold.co/600x450/e0f2fe/0891b2?text=Dashboard+Gtech" alt="Painel Dashboard Gtech" class="rounded-xl shadow-2xl shadow-cyan-500/20 w-full h-auto">
+        </div>
+        <div class="text-gray-700">
+            <h3 class="text-3xl font-bold text-gray-900 mb-4">Dashboard <span class="text-cyan-500">Gtech</span></h3>
+            <p class="mb-6 leading-relaxed">Informações em tempo real para tomada de decisões estratégicas com visualização intuitiva de todos os dados do seu negócio.</p>
+            <ul class="space-y-4 mb-8">
+                <li class="flex items-center">
+                    <svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Visualização em tempo real de vendas e métricas
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Gráficos e indicadores personalizáveis
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Comparativo entre períodos e filiais
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-6 w-6 mr-3 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Alertas e indicadores de desempenho
+                </li>
+            </ul>
+            <a href="#cta-final" class="btn-primary">Quero uma Demonstração</a>
+        </div>
+    </section>
+</div>
       </div>
     </div>
     </div>
 
         <section id="servicos" class="py-20 sm:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-600 sm:text-4xl section-title fade-in">Nossos Softwares</h2>
-            <p class="mt-4 text-lg leading-8 text-gray-600">Soluções completas para otimizar a gestão do seu negócio.</p>
-        </div>
+        
+        <div class="text-center mb-12">
+        <h2 class="text-3xl section-title font-bold tracking-tight text-gray-600 sm:text-4xl">Nossos Adicionais</h2>
+        <p class="mt-4 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">Soluções flexíveis que se adaptam perfeitamente ao seu tipo de negócio.</p>
+      </div>
 
         <!-- Grid de Cards dos Softwares -->
-        <div id="software-grid" class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+        <div id="software-grid" class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8 justify-items-center">
             <!-- Módulo de Compras -->
-            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-80 flex flex-col" data-index="0">
+            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-96 flex flex-col" data-index="0">
                 <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-cyan-900 to-cyan-800 text-cyan-400 mb-4 transition-colors duration-300 group-hover:from-cyan-800 group-hover:to-cyan-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -390,7 +432,7 @@
             </div>
 
             <!-- Cotação de Preços -->
-            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-80 flex flex-col" data-index="1">
+            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-96 flex flex-col" data-index="1">
                 <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-cyan-900 to-cyan-800 text-cyan-400 mb-4 transition-colors duration-300 group-hover:from-cyan-800 group-hover:to-cyan-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -407,7 +449,7 @@
             </div>
 
             <!-- Monitor de Notas Fiscais -->
-            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-80 flex flex-col" data-index="2">
+            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-96 flex flex-col" data-index="2">
                 <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-cyan-900 to-cyan-800 text-cyan-400 mb-4 transition-colors duration-300 group-hover:from-cyan-800 group-hover:to-cyan-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -424,7 +466,7 @@
             </div>
 
             <!-- Pix Integrado -->
-            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-80 flex flex-col" data-index="3">
+            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-96 flex flex-col" data-index="3">
                 <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-cyan-900 to-cyan-800 text-cyan-400 mb-4 transition-colors duration-300 group-hover:from-cyan-800 group-hover:to-cyan-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -441,7 +483,7 @@
             </div>
 
             <!-- Módulo Financeiro -->
-            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-80 flex flex-col" data-index="4">
+            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-96 flex flex-col" data-index="4">
                 <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-cyan-900 to-cyan-800 text-cyan-400 mb-4 transition-colors duration-300 group-hover:from-cyan-800 group-hover:to-cyan-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -458,7 +500,7 @@
             </div>
 
             <!-- Módulo de Vendas -->
-            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-80 flex flex-col" data-index="5">
+            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-96 flex flex-col" data-index="5">
                 <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-cyan-900 to-cyan-800 text-cyan-400 mb-4 transition-colors duration-300 group-hover:from-cyan-800 group-hover:to-cyan-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -475,25 +517,10 @@
             </div>
 
             <!-- Card 6 (original) -->
-            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-80 flex flex-col" data-index="6">
-                <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-cyan-900 to-cyan-800 text-cyan-400 mb-4 transition-colors duration-300 group-hover:from-cyan-800 group-hover:to-cyan-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-cyan-400">DASHBOARD</h3>
-                <p class="mt-2 text-gray-300 flex-grow">Informações em tempo real para tomada de decisões estratégicas com visualização intuitiva.</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <span class="text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold text-sm">
-                        Ver detalhes →
-                    </span>
-                    <div class="h-1 bg-gradient-to-r from-cyan-500 to-transparent w-0 group-hover:w-1/2 transition-all duration-500"></div>
-                </div>
-            </div>
+            
             
             <!-- Card 7 (original) -->
-            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-80 flex flex-col" data-index="7">
+            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-96 flex flex-col" data-index="7">
                 <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-cyan-900 to-cyan-800 text-cyan-400 mb-4 transition-colors duration-300 group-hover:from-cyan-800 group-hover:to-cyan-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
@@ -510,7 +537,7 @@
             </div>
             
             <!-- Card 8 (original) -->
-            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-80 flex flex-col" data-index="8">
+            <div class="software-card group relative cursor-pointer bg-gray-800 border border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-400 hover:-translate-y-2 transition-all duration-300 w-full max-w-sm h-96 flex flex-col" data-index="8">
                 <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-gradient-to-br from-cyan-900 to-cyan-800 text-cyan-400 mb-4 transition-colors duration-300 group-hover:from-cyan-800 group-hover:to-cyan-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>

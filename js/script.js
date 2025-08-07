@@ -76,54 +76,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- Dados dos Softwares ---
 const softwareData = [
-{
-icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>`,
-title: 'GTECH GESTAO INTEGRADO',
-shortDesc: 'Ideal para micro e pequenas empresas.',
-fullDesc: `<p>O <strong>GTECH Gestão Integrado</strong> é a ferramenta perfeita para centralizar as operações da sua empresa. Controle de estoque, financeiro, vendas e emissão de notas fiscais em um só lugar. Simplifique sua rotina e ganhe tempo para focar no que realmente importa: o crescimento do seu negócio.</p>`
-},
-{
-icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 4h5m-5 4h5" /></svg>`,
-title: 'GTECH GESTAO ++',
-shortDesc: 'Para operações extensas e multifiliais.',
-fullDesc: `<p>Gerencie múltiplas filiais com total controle e visão unificada. O <strong>GTECH Gestão ++</strong> oferece recursos avançados de logística, relatórios consolidados e gestão de transferências, garantindo que sua operação, não importa o tamanho, funcione de forma sincronizada e eficiente.</p>`
-},
-{
-icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 3V9H3V3m18 0l-8.29 8.29a2 2 0 01-2.83 0L3 3m18 0V1h-2v2h-2v2h2v2h2V5h2V3zM3 3V1H1v2H-1v2H1v2H3V5H1V3z" /><path stroke-linecap="round" stroke-linejoin="round" d="M21 14v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5m18-4l-8.29 8.29a2 2 0 01-2.83 0L3 10" /></svg>`,
-title: 'GTECH GESTAO CHEFF',
-shortDesc: 'Para delicatessens, bares e restaurantes.',
-fullDesc: `<p>Com o <strong>GTECH Gestão Cheff</strong>, você tem controle total do seu estabelecimento. Gestão de mesas e comandas, controle de insumos por ficha técnica, integração com iFood e um PDV ágil para garantir o melhor atendimento. Transforme a gestão do seu negócio gastronômico.</p>`
-},
-{
-icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>`,
-title: 'GTECH GESTAO MOBILE',
-shortDesc: 'Software via celular compatível com Android.',
-fullDesc: `<p>A gestão da sua empresa na palma da sua mão! O <strong>GTECH Gestão Mobile</strong> permite que vendedores externos tirem pedidos, consultem estoque e clientes de onde você estiver. Totalmente integrado ao seu sistema principal, agiliza as vendas e reduz erros.</p>`
-},
-{
-icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H4a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>`,
-title: 'GTECH GESTAO NFC-e',
-shortDesc: 'Sistema PDV básico para MEI\'s e EPP\'s.',
-fullDesc: `<p>Foque no essencial. O <strong>GTECH Gestão NFC-e</strong> é um Ponto de Venda (PDV) rápido e descomplicado, ideal para Microempreendedores Individuais (MEI) e Empresas de Pequeno Porte (EPP). Emita suas notas fiscais ao consumidor de forma rápida e esteja em dia com o fisco sem complicação.</p>`
-},
-{
-icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>`,
-title: 'DASHBOARD',
-shortDesc: 'Informações em tempo real para decisões.',
-fullDesc: `<p>Visualize a saúde do seu negócio em tempo real. Nossos <strong>Dashboards</strong> transformam dados brutos em gráficos intuitivos sobre faturamento, produtos mais vendidos, ticket médio e muito mais. Tome decisões estratégicas baseadas em informações precisas e atualizadas.</p>`
-},
-{
-icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>`,
-title: 'GTECH BACKUP CLOUD',
-shortDesc: 'Segurança e armazenamento em nuvem.',
-fullDesc: `<p>Proteja o ativo mais valioso da sua empresa: suas informações. Com o <strong>GTECH Backup Cloud</strong>, seus dados são salvos automaticamente em servidores seguros na nuvem, protegendo contra falhas de hardware, vírus, ataques virtuais ou imprevistos. Durma tranquilo sabendo que seu negócio está seguro.</p>`
-},
-{
-icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
-title: 'CONCILIAÇÃO BANCÁRIA',
-shortDesc: 'Controle financeiro automatizado.',
-fullDesc: `<p>Diga adeus às planilhas manuais. Nossa ferramenta de <strong>Conciliação Bancária</strong> importa extratos e aponta divergências em seus recebíveis. Identifique divergências com facilidade e mantenha seu fluxo de caixa sempre preciso e atualizado.</p>`
-}
+    {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
+        title: 'MÓDULO DE COMPRAS',
+        shortDesc: 'Pesquisa de preços dinâmica e crítica automática.',
+        fullDesc: `<p>O <strong>Módulo de Compras</strong> permite gerar pesquisas de preços de forma dinâmica, personalizando os filtros conforme sua necessidade e enviando via web. Após a resposta do fornecedor, o sistema já fornece a crítica com indicação do menor preço, agilizando seu processo de compras e garantindo melhores negociações.</p>`
+    },
+    {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+        title: 'COTAÇÃO DE PREÇOS',
+        shortDesc: 'Automatização de promoções e gestão de preços.',
+        fullDesc: `<p>Com o <strong>Cotação de Preços</strong>, você gerencia suas promoções de forma automatizada, programando início e fim das campanhas. O sistema altera os preços automaticamente, evitando esquecimentos e prejuízos. Mantenha sua estratégia de preços sempre atualizada e competitiva no mercado.</p>`
+    },
+    {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>`,
+        title: 'MONITOR DE NOTAS FISCAIS',
+        shortDesc: 'Controle e validação de notas fiscais.',
+        fullDesc: `<p>O <strong>Monitor de Notas Fiscais</strong> permite que você acompanhe todas as notas emitidas para seu CNPJ de forma simples e prática. Aceite ou rejeite notas não reconhecidas, evitando fraudes contra seu CNPJ e mantendo sua empresa em dia com as obrigações fiscais.</p>`
+    },
+    {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
+        title: 'PIX INTEGRADO',
+        shortDesc: 'Recebimentos instantâneos via Pix.',
+        fullDesc: `<p>O <strong>Pix Integrado</strong> permite gerar QR Code diretamente no seu PDV e receber pagamentos instantaneamente, com confirmação automática. A venda só é liberada após a confirmação do pagamento, garantindo segurança nas transações e agilidade no atendimento ao cliente.</p>`
+    },
+    {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+        title: 'MÓDULO FINANCEIRO',
+        shortDesc: 'Controle completo das finanças.',
+        fullDesc: `<p>O <strong>Módulo Financeiro</strong> facilita seu controle financeiro com funcionalidades completas: contas a pagar e receber, borderô, conciliação bancária e movimentações financeiras. Tenha uma visão clara do fluxo de caixa e mantenha suas finanças organizadas.</p>`
+    },
+    {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>`,
+        title: 'MÓDULO DE VENDAS',
+        shortDesc: 'Relatórios e controle de vendas.',
+        fullDesc: `<p>Com o <strong>Módulo de Vendas</strong>, você tem acesso a relatórios detalhados de faturamento, flash de vendas em tempo real, controle de comissões, pedidos por plataforma, dashboards comparativos e orçamentos rápidos. Tudo para impulsionar suas vendas e melhorar seus resultados.</p>`
+    },
+    {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>`,
+        title: 'DASHBOARD',
+        shortDesc: 'Informações em tempo real para decisões.',
+        fullDesc: `<p>Visualize a saúde do seu negócio em tempo real. Nossos <strong>Dashboards</strong> transformam dados brutos em gráficos intuitivos sobre faturamento, produtos mais vendidos, ticket médio e muito mais. Tome decisões estratégicas baseadas em informações precisas e atualizadas.</p>`
+    },
+    {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>`,
+        title: 'GTECH BACKUP CLOUD',
+        shortDesc: 'Segurança e armazenamento em nuvem.',
+        fullDesc: `<p>Proteja o ativo mais valioso da sua empresa: suas informações. Com o <strong>GTECH Backup Cloud</strong>, seus dados são salvos automaticamente em servidores seguros na nuvem, protegendo contra falhas de hardware, vírus, ataques virtuais ou imprevistos. Durma tranquilo sabendo que seu negócio está seguro.</p>`
+    },
+    {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
+        title: 'CONCILIAÇÃO BANCÁRIA',
+        shortDesc: 'Controle financeiro automatizado.',
+        fullDesc: `<p>Diga adeus às planilhas manuais. Nossa ferramenta de <strong>Conciliação Bancária</strong> importa extratos e aponta divergências em seus recebíveis. Identifique divergências com facilidade e mantenha seu fluxo de caixa sempre preciso e atualizado.</p>`
+    }
 ];
 
 // --- Elementos do DOM ---

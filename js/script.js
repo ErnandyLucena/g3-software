@@ -10,14 +10,14 @@ document.addEventListener('DOMContentLoaded', function () {
         mobileMenu.classList.toggle('hidden');
     });
 
-    // Fecha o menu mobile ao clicar em um link
+    
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
         });
     });
 
-    // --- Lógica do Modal de Contato ---
+    
     const contactModal = document.getElementById('contactModal');
     const modalPanel = document.getElementById('modal-panel');
     const closeModalBtn = document.getElementById('closeModalBtn');
@@ -205,7 +205,7 @@ const tabContents = document.querySelectorAll('.tab-content');
 let currentIndex = 0;
 let intervalId = null;
 
-// Função para ativar uma tab específica
+
 function activateTab(index) {
 currentIndex = (index + tabs.length) % tabs.length;
 
@@ -227,10 +227,9 @@ function nextTab() {
 activateTab(currentIndex + 1);
 }
 
-// Configura o intervalo para alternar automaticamente
 function startAutoRotation() {
 if (intervalId) clearInterval(intervalId);
-intervalId = setInterval(nextTab, 3000); // 3 segundos
+intervalId = setInterval(nextTab, 3000); 
 }
 
 tabs.forEach((tab, index) => {

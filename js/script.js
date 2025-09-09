@@ -232,12 +232,7 @@ if (intervalId) clearInterval(intervalId);
 intervalId = setInterval(nextTab, 3000); 
 }
 
-tabs.forEach((tab, index) => {
-tab.addEventListener('click', () => {
-    activateTab(index);
-    startAutoRotation();
-});
-});
+tabs.forEach((tab, index) => { tab.addEventListener('click', () => { activateTab(index); clearInterval(intervalId); intervalId = null; }); });
 
 startAutoRotation();
 
@@ -253,3 +248,15 @@ tabsContainer.addEventListener('mouseleave', () => {
 
 activateTab(0);
 });
+
+  // JavaScript para o efeito de brilho que segue o mouse
+    const ctaCard = document.querySelector('.cta-card');
+
+    ctaCard.addEventListener('mousemove', e => {
+        const rect = ctaCard.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        ctaCard.style.setProperty('--mouse-x', `${x}px`);
+        ctaCard.style.setProperty('--mouse-y', `${y}px`);
+    });

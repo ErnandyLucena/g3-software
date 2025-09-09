@@ -170,3 +170,65 @@ box-shadow: 0 0 0 2px #00aaff; /* Cria um anel ciano ao redor do campo */
 .form-input::placeholder {
 color: #9ca3af; /* Cor do texto de exemplo (cinza médio) */
 }
+ .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+             background: linear-gradient(180deg, #0000006b, #0000005f, #000000b6);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .group:hover .caption {
+            transform: translateY(0);
+        }
+        
+        .group {
+            position: relative;
+            overflow: hidden;
+        } 
+
+
+      
+
+        /* 2. Animação de pulso mais lenta para o título */
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.75; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* 3. Efeito de brilho que segue o mouse (NOVO) */
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 0.75rem; /* Mesmo valor do rounded-xl do Tailwind */
+            /* Gradiente radial que se posiciona com as variáveis --mouse-x e --mouse-y */
+            background: radial-gradient(
+                350px circle at var(--mouse-x) var(--mouse-y),
+                rgba(139, 92, 246, 0.15), /* Roxo sutil, derivado da paleta */
+                transparent 80%
+            );
+            opacity: 0;
+            transition: opacity 0.3s linear;
+        }
+        .cta-card:hover::before {
+            opacity: 1; /* Mostra o brilho no hover */
+        }

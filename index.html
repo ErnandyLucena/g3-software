@@ -605,17 +605,40 @@
        
         
         <!-- Seção 8: CTA Final -->
-        <section id="cta-final" class="py-2 px-4 md:py-24 text-center">
-             <div class="glassmorphism rounded-xl p-12 w-5/6 mx-auto fade-in">
-                  <h2 class="text-4xl font-bold text-gray-200 mb-6">Pronto para dar o próximo passo?</h2>
-                  <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-                        Veja na prática como nossas soluções podem revolucionar a gestão da sua empresa. Agende uma demonstração gratuita e sem compromisso.
-                  </p>
-                  <button id="openModalBtnCta" class="btn-primary px-8 py-3 text-lg">
-                        Solicitar Demonstração
-                  </button>
-             </div>
-        </section>
+        <section id="cta-final" class="relative overflow-hidden py-16 px-4 md:py-24 text-center">
+   
+    
+    <div class="relative z-10">
+        <div class="cta-card glassmorphism bg-gray-800 relative overflow-hidden
+                    w-full max-w-4xl mx-auto p-8 md:p-12 
+                    border border-gray-700 rounded-xl
+                    transform transition-transform duration-500 hover:scale-105">
+            
+            <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-500 rounded-xl opacity-10 blur-sm"></div>
+
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-200 mb-6 animate-pulse-slow">
+                    Pronto para dar o próximo passo?
+                </h2>
+
+                <p class="text-base md:text-lg text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+                    Veja na prática como nossas soluções podem revolucionar a gestão da sua empresa. 
+                    Agende uma demonstração gratuita e sem compromisso.
+                </p>
+
+                <button id="openModalBtnCta" 
+                        class="px-8 py-3 text-lg rounded-lg shadow-lg
+                               bg-gradient-to-r from-blue-700 to-blue-500 
+                               text-white font-semibold
+                               transition-all duration-300
+                               transform hover:-translate-y-1 hover:shadow-xl
+                               hover:from-blue-900 hover:to-blue-800">
+                    Solicitar Demonstração
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
 
     </main>
 

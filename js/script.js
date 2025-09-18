@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     function openModal() {
-        contactModal.classList.remove('invisible', 'opacity-0');
+        modal-form.classList.remove('invisible', 'opacity-0');
         modalPanel.classList.remove('scale-95');
         modalPanel.classList.add('scale-100');
     }
@@ -260,3 +260,91 @@ activateTab(0);
         ctaCard.style.setProperty('--mouse-x', `${x}px`);
         ctaCard.style.setProperty('--mouse-y', `${y}px`);
     });
+
+    function fecharModal() {
+        const modal = document.getElementById("meuModal");
+        if (modal) modal.style.display = "none";
+      
+        const modalForm = document.getElementById("modal-form");
+        if (modalForm) modalForm.classList.add("hidden");
+      }
+      
+      document.getElementById("meuFormulario").addEventListener("submit", async function (e) {
+        e.preventDefault(); // 🔒 bloqueia o envio nativo
+        e.stopPropagation(); // 🔒 impede bubbling
+      
+        // fecha imediatamente
+        fecharModal();
+      
+        const formData = new FormData(this);
+      
+        try {
+          const response = await fetch("https://api.staticforms.xyz/submit", {
+            method: "POST",
+            body: formData,
+          });
+      
+          if (response.ok) {
+            const toast = document.getElementById("toast-success");
+            toast.classList.remove("hidden");
+            toast.style.opacity = "1";
+      
+            setTimeout(() => {
+              toast.style.opacity = "0";
+              setTimeout(() => toast.classList.add("hidden"), 500);
+            }, 3000);
+          } else {
+            console.log("one-step");
+          }
+        } catch (error) {
+          console.log("two-step");
+        }
+      
+        return false; 
+      });
+      
+      const form = document.getElementById('meuFormulario');
+      const modal = document.getElementById('modal-form');
+      const successCard = document.getElementById('success-card');
+      
+      form.addEventListener('submit', function(e) {
+        // Aguardar o envio no iframe
+        setTimeout(() => {
+          // Fechar modal
+          modal.classList.add('hidden');
+      
+          // Mostrar card de sucesso
+          successCard.classList.remove('opacity-0', 'translate-y-6');
+          successCard.classList.add('opacity-100', 'translate-y-0');
+      
+          // Esconder card depois de 4s
+          setTimeout(() => {
+            successCard.classList.add('opacity-0', 'translate-y-6');
+            successCard.classList.remove('opacity-100', 'translate-y-0');
+          }, 4000);
+        }, 500); // aguarda 0.5s para garantir envio
+      });
+      
+      // Função para abrir modal
+function openModal() {
+    const modalForm = document.getElementById("modal-form");
+    const meuModal = document.getElementById("meuModal");
+  
+    if (modalForm) modalForm.classList.remove("hidden");
+    if (meuModal) meuModal.style.display = "flex";
+  }
+  
+  // Listener do botão desktop
+  const openModalBtn = document.getElementById("openModalBtnDesktop");
+  if (openModalBtn) {
+    openModalBtn.addEventListener("click", openModal);
+  }
+
+  function closeModal() {
+    const modalForm = document.getElementById("modal-form");
+    const meuModal = document.getElementById("meuModal");
+  
+    if (modalForm) modalForm.classList.add("hidden");
+    if (meuModal) meuModal.style.display = "none";
+  }
+  

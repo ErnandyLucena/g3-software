@@ -1,58 +1,83 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     
     // --- Lógica da Navegação Mobile ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
     mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
     });
 
-    
-    mobileNavLinks.forEach(link => {
+    // Fechar o menu mobile ao clicar em uma opção
+    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+    mobileMenuLinks.forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
         });
     });
 
+    // --- Lógica do Modal de Contato ---
+    const modalForm = document.getElementById('modal-form');
+    const closeModalBtn = document.querySelector('[onclick="closeModal()"]');
     
-    const contactModal = document.getElementById('contactModal');
-    const modalPanel = document.getElementById('modal-panel');
-    const closeModalBtn = document.getElementById('closeModalBtn');
+    // Função para abrir o modal
+    function openModal() {
+        modalForm.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Previne scroll
+    }
+
+    // Função para fechar o modal
+    function closeModal() {
+        modalForm.classList.add('hidden');
+        document.body.style.overflow = ''; // Restaura scroll
+        
+        // Limpa o formulário
+        document.getElementById('meuFormulario').reset();
+    }
+
+    // Adiciona event listeners para todos os botões de abrir modal
     const openModalBtns = [
         document.getElementById('openModalBtnDesktop'),
         document.getElementById('openModalBtnMobile'),
         document.getElementById('openModalBtnCta')
-    ];
-
-    function openModal() {
-        modal-form.classList.remove('invisible', 'opacity-0');
-        modalPanel.classList.remove('scale-95');
-        modalPanel.classList.add('scale-100');
-    }
-
-    function closeModal() {
-        modalPanel.classList.remove('scale-100');
-        modalPanel.classList.add('scale-95');
-        contactModal.classList.add('opacity-0');
-        setTimeout(() => {
-            contactModal.classList.add('invisible');
-        }, 300);
-    }
+    ].filter(btn => btn !== null); // Filtra apenas botões que existem
 
     openModalBtns.forEach(btn => {
-        if(btn) btn.addEventListener('click', openModal);
+        btn.addEventListener('click', openModal);
     });
     
-    closeModalBtn.addEventListener('click', closeModal);
+    // Adiciona event listener para o botão de fechar
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+    }
 
-    // Fecha o modal ao clicar fora do painel
-    contactModal.addEventListener('click', (event) => {
-        if (event.target === contactModal) {
+    // Fecha o modal ao clicar fora do conteúdo
+    modalForm.addEventListener('click', (event) => {
+        if (event.target === modalForm) {
             closeModal();
         }
+    });
+
+    // --- Lógica de envio do formulário ---
+    const form = document.getElementById('meuFormulario');
+    const successPopup = document.getElementById('success-popup');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Simula o envio bem-sucedido (substitua por sua lógica real de envio)
+        setTimeout(function() {
+            // Mostra a mensagem de sucesso
+            successPopup.classList.remove('hidden');
+            
+            // Fecha o modal e restaura o scroll
+            closeModal();
+            
+            // Esconde a mensagem de sucesso após 3 segundos
+            setTimeout(function() {
+                successPopup.classList.add('hidden');
+            }, 3000);
+        }, 1000);
     });
 
     // --- Lógica de Animação de Scroll (Fade-in) ---
@@ -71,6 +96,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+// Torna a função closeModal global para funcionar com o onclick no HTML
+window.closeModal = function() {
+    const modalForm = document.getElementById('modal-form');
+    if (modalForm) {
+        modalForm.classList.add('hidden');
+        document.body.style.overflow = '';
+        
+        // Limpa o formulário
+        document.getElementById('meuFormulario').reset();
+    }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
 
